@@ -1,0 +1,169 @@
+﻿<UserControl x:Class="VoiceInspection.Tab.CL.Views.InspectionHistoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="1920">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/VoiceInspection.Tab.CL;component/Styles/Button.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ダイハツ様ロゴ -->
+        <Image Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/VoiceInspection.Tab.CL;component/Resources/ic_daihatsu.png" Height="70" Width="500" />
+
+        <!-- タイトル -->
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="点検履歴" FontSize="30" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Margin="28 0 0 0"/>
+
+        <Button Grid.Row="1" Grid.Column="0" x:Name="btnBack"  FontSize="24" 
+                HorizontalAlignment="Left" Margin="50"
+                Style="{StaticResource Style1}" Width="270"
+                Command="{Binding BackToTopCommand}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="160">
+                <Image Source="/VoiceInspection.Tab.CL;component/Resources/ic_reply1.png" />
+                <TextBlock Text="戻る" HorizontalAlignment="Center" FontSize="25" Height="35"/>
+            </StackPanel>
+        </Button>
+
+        <ComboBox x:Name="cbInspectionType" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Height="50"
+                  Margin="150 0 0 0"
+                  ItemsSource="{Binding InspectionType}" SelectedItem="{Binding SelectedType}"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
+            <ComboBox x:Name="cbDateTimeOfStart" Width="250" Height="50" ItemsSource="{Binding StartDate}" SelectedItem="{Binding SelectedStartDate}"/>
+            <Label Content="～" />
+            <ComboBox x:Name="cbDateTimeOfEnd" Width="250" Height="50" ItemsSource="{Binding EndDate}" SelectedItem="{Binding SelectedEndDate}"/>
+        </StackPanel>
+
+        <Button Grid.Row="1" Grid.Column="3" Content="検索" x:Name="btnSearch"
+                Width="270" FontSize="24" Height="40" Style="{StaticResource Style1}" />
+
+        <DataGrid Grid.Row="2" Grid.ColumnSpan="4" Margin="50 0 50 0">
+            <DataGrid.Resources>
+                <!-- Define a style for DataGridColumn headers -->
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="Height" Value="100" />
+                    <Setter Property="FontSize" Value="20" />
+                    <Setter Property="Background" Value="LightGray" />
+                </Style>
+            </DataGrid.Resources>
+            
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="受付番号"  Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding T1}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="登録番号" Width="*" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding T2}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="点検グループ" Width="*" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding T3}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="整備担当者" Width="*" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding T4}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="整備主任者"  Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding T5}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn  Width="*" >
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="承認者
+                                           承認日時" TextWrapping="Wrap" TextAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding T6}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" >
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="点検開始
+                                           点検終了" TextWrapping="Wrap" TextAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding T7}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn  Width="*" >
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="作業時間
+                                       (所要時間)" TextWrapping="Wrap" TextAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding T8}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="\n\n" Width="*" >
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="点検済
+                                           未点検
+                                           無効" TextWrapping="Wrap" TextAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding T9}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <!-- 其他列 -->
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
