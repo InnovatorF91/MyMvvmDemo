@@ -140,6 +140,9 @@
     <Compile Include="Models\Repositories\LoginRepository.cs" />
     <Compile Include="Models\Repositories\InspectionHistoryRepository.cs" />
     <Compile Include="Models\WindowManager.cs" />
+    <Compile Include="SubWindow2View.xaml.cs">
+      <DependentUpon>SubWindow2View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SubWindowView.xaml.cs">
       <DependentUpon>SubWindowView.xaml</DependentUpon>
     </Compile>
@@ -149,6 +152,8 @@
     <Compile Include="ViewModels\QRCodeReaderViewModel.cs" />
     <Compile Include="ViewModels\ReceiptNumberEntryViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\Sub2ViewModel.cs" />
+    <Compile Include="ViewModels\SubWindow2ViewModel.cs" />
     <Compile Include="ViewModels\SubWindowViewModel.cs" />
     <Compile Include="ViewModels\TeModoriNyuryokuViewModel.cs" />
     <Compile Include="ViewModels\TopViewModel.cs" />
@@ -166,6 +171,9 @@
     </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sub2View.xaml.cs">
+      <DependentUpon>Sub2View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TeModoriNyuryokuView.xaml.cs">
       <DependentUpon>TeModoriNyuryokuView.xaml</DependentUpon>
@@ -186,6 +194,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Styles\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindow2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,6 +222,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sub2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

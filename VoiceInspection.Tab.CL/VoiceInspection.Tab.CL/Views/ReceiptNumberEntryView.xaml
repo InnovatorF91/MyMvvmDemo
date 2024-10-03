@@ -1,10 +1,12 @@
-﻿<UserControl x:Class="VoiceInspection.Tab.CL.Views.ReceiptNumberEntryView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" 
-             d:DesignHeight="1200" d:DesignWidth="1920">
+﻿<UserControl
+    x:Class="VoiceInspection.Tab.CL.Views.ReceiptNumberEntryView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="1200"
+    d:DesignWidth="1920"
+    mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,36 +17,125 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!-- ダイハツ様ロゴ -->
-        <Image Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/VoiceInspection.Tab.CL;component/Resources/ic_daihatsu.png" Height="70" Width="500" />
+        <!--  ダイハツ様ロゴ  -->
+        <Image
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Width="500"
+            Height="70"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Source="/VoiceInspection.Tab.CL;component/Resources/ic_daihatsu.png" />
 
-        <!-- タイトル -->
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="受付番号入力" FontSize="40" 
-                   HorizontalAlignment="Center" Margin="0 0 -180 0" Width="336" />
+        <!--  タイトル  -->
+        <TextBlock
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Width="336"
+            Margin="0,0,-180,0"
+            HorizontalAlignment="Center"
+            FontSize="40"
+            Text="受付番号入力" />
 
-        <!-- 受付番号 -->
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="受付番号" VerticalAlignment="Center" 
-                   HorizontalAlignment="Right" FontSize="24" Margin="0,50,100,10" Height="30" Width="116"/>
-        <TextBox Grid.Row="2" Grid.ColumnSpan="2" x:Name="txbReceiptNo" Margin="892,51,643,10" FontSize="16" TextAlignment="Justify" VerticalContentAlignment="Center" Text="{Binding ReceiptNo}"/>
-        <Button Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="QR" Margin="325,51,590,11" Style="{StaticResource Style1}" Height="30" Width="45" x:Name ="btnQR" Command="{Binding QRCommand}"/>
+        <!--  受付番号  -->
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            Width="116"
+            Height="30"
+            Margin="0,50,100,10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            FontSize="24"
+            Text="受付番号" />
+        <TextBox
+            x:Name="txbReceiptNo"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Margin="892,51,643,10"
+            VerticalContentAlignment="Center"
+            FontSize="16"
+            Text="{Binding ReceiptNo}"
+            TextAlignment="Justify" />
+        <Button
+            x:Name="btnQR"
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="45"
+            Height="30"
+            Margin="325,51,590,11"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{Binding QRCommand}"
+            Content="QR"
+            Style="{StaticResource Style1}" />
 
-        <!-- ボタン -->
-        <Button Grid.Row="4" Grid.Column="0" x:Name="btnBackToTop" VerticalAlignment="Center" HorizontalAlignment="Center" Content="戻る" Margin="0 130 -800 0" Style="{StaticResource Style1}" Width="150" Height="30" Command="{Binding BackToTopCommand}" />
-        <Button Grid.Row="4" Grid.Column="1" x:Name="btnNextView" VerticalAlignment="Center" HorizontalAlignment="Center" Content="次へ" Margin="0 130 800 0" Style="{StaticResource Style1}" Width="150" Height="30" Command="{Binding NextViewCommand}" IsEnabled="{Binding ButtonJotai}"/>
+        <!--  ボタン  -->
+        <Button
+            x:Name="btnBackToTop"
+            Grid.Row="4"
+            Grid.Column="0"
+            Width="150"
+            Height="30"
+            Margin="0,130,-800,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{Binding BackToTopCommand}"
+            Content="戻る"
+            Style="{StaticResource Style1}" />
+        <Button
+            x:Name="btnNextView"
+            Grid.Row="4"
+            Grid.Column="1"
+            Width="150"
+            Height="30"
+            Margin="0,130,800,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{Binding NextViewCommand}"
+            Content="次へ"
+            IsEnabled="{Binding ButtonJotai}"
+            Style="{StaticResource Style1}" />
 
-        <Button Grid.Row="5" Grid.ColumnSpan="2" x:Name="btnTeModoriNyuryoku" VerticalAlignment="Center" HorizontalAlignment="Center" Content="手戻り理由入力" Margin="0 130 0 0" Style="{StaticResource Style1}" Width="150" Height="30" Command="{Binding TeModoriNyuryokuCommand}" IsEnabled="{Binding TeModoriNyuryokuSeigyo}"/>
+        <Button
+            x:Name="btnTeModoriNyuryoku"
+            Grid.Row="5"
+            Grid.ColumnSpan="2"
+            Width="150"
+            Height="30"
+            Margin="0,130,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{Binding TeModoriNyuryokuCommand}"
+            Content="手戻り理由入力"
+            IsEnabled="{Binding TeModoriNyuryokuSeigyo}"
+            Style="{StaticResource Style1}" />
+        <Button
+            x:Name="btn2"
+            Grid.Row="6"
+            Grid.ColumnSpan="2"
+            Width="150"
+            Height="30"
+            Margin="0,130,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{Binding SubWindow2Command}"
+            Content="ボタン２"
+            IsEnabled="{Binding BtnSeigyo}"
+            Style="{StaticResource Style1}" />
 
     </Grid>
 </UserControl>

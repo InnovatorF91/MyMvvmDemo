@@ -1,11 +1,13 @@
-﻿<UserControl x:Class="VoiceInspection.Tab.CL.Views.TeModoriNyuryokuView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:VoiceInspection.Tab.CL.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+﻿<UserControl
+    x:Class="VoiceInspection.Tab.CL.Views.TeModoriNyuryokuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:VoiceInspection.Tab.CL.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -20,35 +22,69 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="txbTitle" Text="手戻り理由入力" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <TextBlock
+            x:Name="txbTitle"
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="30"
+            Text="手戻り理由入力" />
 
         <ScrollViewer Grid.Row="1">
-            <StackPanel  >
-                <TextBox Text="{Binding Text1}"/>
-                <TextBox Text="{Binding Text2}"/>
-                <TextBox Text="{Binding Text3}"/>
-                <TextBox Text="{Binding Text4}"/>
-                <TextBox Text="{Binding Text5}"/>
-                <TextBox Text="{Binding Text6}"/>
-                <TextBox Text="{Binding Text7}"/>
-                <TextBox Text="{Binding Text8}"/>
-                <TextBox Text="{Binding Text9}"/>
-                <TextBox Text="{Binding Text10}"/>
-                <TextBox Text="{Binding Text11}"/>
-                <TextBox Text="{Binding Text12}"/>
-                <TextBox Text="{Binding Text13}"/>
-                <TextBox Text="{Binding Text14}"/>
-                <TextBox Text="{Binding Text15}"/>
-                <TextBox Text="{Binding Text16}"/>
-                <TextBox Text="{Binding Text17}"/>
-                <TextBox Text="{Binding Text18}"/>
-                <TextBox Text="{Binding Text19}"/>
-                <TextBox Text="{Binding Text20}"/>
+            <StackPanel>
+                <TextBox Text="{Binding Text1}" />
+                <TextBox Text="{Binding Text2}" />
+                <TextBox Text="{Binding Text3}" />
+                <TextBox Text="{Binding Text4}" />
+                <TextBox Text="{Binding Text5}" />
+                <TextBox Text="{Binding Text6}" />
+                <TextBox Text="{Binding Text7}" />
+                <TextBox Text="{Binding Text8}" />
+                <TextBox Text="{Binding Text9}" />
+                <TextBox Text="{Binding Text10}" />
+                <TextBox Text="{Binding Text11}" />
+                <TextBox Text="{Binding Text12}" />
+                <TextBox Text="{Binding Text13}" />
+                <TextBox Text="{Binding Text14}" />
+                <TextBox Text="{Binding Text15}" />
+                <TextBox Text="{Binding Text16}" />
+                <TextBox Text="{Binding Text17}" />
+                <TextBox Text="{Binding Text18}" />
+                <TextBox Text="{Binding Text19}" />
+                <TextBox Text="{Binding Text20}" />
             </StackPanel>
         </ScrollViewer>
 
-        <Button Grid.Row="2" Content="キャンセル" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Margin="0 0 400 0" Width="100" Style="{StaticResource Style1}" Command="{Binding CancelCommand}"/>
-        <Button Grid.Row="2" Content="保存" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Margin="569,40,120,40" Width="100" Style="{StaticResource Style1}" Command="{Binding HozonCommand}"/>
+        <Button
+            Grid.Row="2"
+            Width="100"
+            Margin="0,0,400,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{Binding CancelCommand}"
+            Content="キャンセル"
+            FontSize="20"
+            Style="{StaticResource Style1}" />
+        <Button
+            Grid.Row="2"
+            Width="100"
+            Margin="569,40,120,40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{Binding HozonCommand}"
+            Content="保存"
+            FontSize="20"
+            Style="{StaticResource Style1}" />
+        <Button
+            Grid.Row="2"
+            Width="100"
+            Margin="100,40,120,40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{Binding TestCommand}"
+            Content="Test"
+            FontSize="20"
+            Style="{StaticResource Style1}" />
 
     </Grid>
 </UserControl>

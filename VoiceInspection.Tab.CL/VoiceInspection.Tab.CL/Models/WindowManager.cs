@@ -13,6 +13,8 @@
 
         public SubWindowView SubWindow { get; set; }
 
+        public SubWindow2View SubWindow2 { get; set; }
+
         public static WindowManager GetInstance()
         {
             if (instance == null)

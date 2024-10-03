@@ -8,6 +8,7 @@ using System.Windows;
 using VehicleInspection.CM.InputModel;
 using VoiceInspection.Tab.CL.Models;
 using VoiceInspection.Tab.CL.Models.Repositories;
+using VoiceInspection.Tab.CL.Views;
 
 namespace VoiceInspection.Tab.CL.ViewModels
 {
@@ -16,6 +17,8 @@ namespace VoiceInspection.Tab.CL.ViewModels
         public DelegateCommand<object> CancelCommand { get; private set; }
 
         public DelegateCommand<object> HozonCommand { get; private set; }
+
+        public DelegateCommand<object> TestCommand { get; private set; }
 
         private int count = 0;
 
@@ -164,9 +167,17 @@ namespace VoiceInspection.Tab.CL.ViewModels
         {
             CancelCommand = new DelegateCommand<object>(TapCancelCommand);
             HozonCommand = new DelegateCommand<object>(TapHonzonCommand);
+            TestCommand = new DelegateCommand<object>(TapTestCommand);
         }
 
-        private void TapHonzonCommand(object obj)
+		private void TapTestCommand(object obj)
+		{
+            var sub2View = new Sub2View();
+            var subWindow2View = new SubWindow2View(sub2View);
+            subWindow2View.ShowDialog();
+        }
+
+		private void TapHonzonCommand(object obj)
         {
             var teModoriNyuryokuRepository = new TeModoriRiyuNyuryokuRipository(new HttpUtility());
 

@@ -29,7 +29,7 @@ namespace VoiceInspection.Tab.CL.ViewModels
         public MainWindowViewModel()
         {
             // 最初はログイン表示に設定
-            CurrentView = new LoginView(new NavigationParameters());
+            CurrentView = new ReceiptNumberEntryView(new NavigationParameters());
         }
     }
 }

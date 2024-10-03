@@ -28,9 +28,17 @@ namespace VoiceInspection.Tab.CL.ViewModels
 
         private bool teModoriNyuryokuSeigyo;
 
+        private bool btnSeigyo;
+
         private ReceiptNumberEntryView View { get; set; }
 
         private NavigationParameters Para { get; set; }
+
+        public bool BtnSeigyo
+        {
+            get => btnSeigyo;
+            set => SetProperty(ref btnSeigyo, value);
+        }
 
         /// <summary>
         /// 入力した受付番号
@@ -52,6 +60,8 @@ namespace VoiceInspection.Tab.CL.ViewModels
             get => teModoriNyuryokuSeigyo;
             set => SetProperty(ref teModoriNyuryokuSeigyo, value);
         }
+
+        public DelegateCommand<object> SubWindow2Command { get; private set; }
 
         /// <summary>
         /// QRボタンタップ処理コマンド
@@ -88,6 +98,8 @@ namespace VoiceInspection.Tab.CL.ViewModels
         {
             ButtonJotai = false;
 
+            SubWindow2Command = new DelegateCommand<object>(TapSubWindow2Command);
+
             QRCommand = new DelegateCommand<object>(ExecuteQRCommand);
             BackToTopCommand = new DelegateCommand<object>(ExecuteBackToTopCommand);
             NextViewCommand = new DelegateCommand<object>(ExecuteNextViewCommand);
@@ -106,10 +118,19 @@ namespace VoiceInspection.Tab.CL.ViewModels
                 ButtonJotai = true;
             }
 
+            BtnSeigyo = true;
+
             TeModoriNyuryokuSeigyo = true;
         }
 
-        private void TapTeModoriNyuryokuCommand(object parameter)
+		private void TapSubWindow2Command(object obj)
+		{
+            var sub2View = new Sub2View();
+            var subWindowView = new SubWindowView(sub2View);
+            subWindowView.ShowDialog();
+		}
+
+		private void TapTeModoriNyuryokuCommand(object parameter)
         {
             var teModoriNyuryokuView = new TeModoriNyuryokuView();
             var subWindowView = new SubWindowView(teModoriNyuryokuView);
