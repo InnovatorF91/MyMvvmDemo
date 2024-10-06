@@ -21,7 +21,7 @@ namespace VoiceInspection.Tab.CL.ViewModels
 
         public SubWindowViewModel(object view)
         {
-            if (view is TeModoriNyuryokuView)
+            if (view is TeModoriNyuryokuView || view is Sub2View)
             {
                 CurrentView = view;
             }

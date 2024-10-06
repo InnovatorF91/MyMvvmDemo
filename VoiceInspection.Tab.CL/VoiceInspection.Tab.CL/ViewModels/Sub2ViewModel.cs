@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using System;
+using System.Windows;
 using VoiceInspection.Tab.CL.Models;
 
 namespace VoiceInspection.Tab.CL.ViewModels
@@ -16,9 +17,21 @@ namespace VoiceInspection.Tab.CL.ViewModels
 
 		private void TapTojiruCommand(object obj)
 		{
-			if (WindowManager.GetInstance().SubWindow2.IsVisible)
+			var windowManager = WindowManager.GetInstance();
+
+			if (windowManager.SubWindow2 == null)
 			{
-				WindowManager.GetInstance().SubWindow2.Close();
+				CloseWindowIfVisible(windowManager.SubWindow);
+			}
+			
+			CloseWindowIfVisible(windowManager.SubWindow2);
+		}
+
+		private void CloseWindowIfVisible(Window window)
+		{
+			if (window != null && window.IsVisible)
+			{
+				window.Close();
 			}
 		}
 	}
