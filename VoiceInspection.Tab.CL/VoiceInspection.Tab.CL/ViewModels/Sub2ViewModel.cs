@@ -19,7 +19,7 @@ namespace VoiceInspection.Tab.CL.ViewModels
 		{
 			var windowManager = WindowManager.GetInstance();
 
-			if (windowManager.SubWindow2 == null)
+			if (windowManager.SubWindow2 == null || !windowManager.SubWindow2.IsVisible)
 			{
 				CloseWindowIfVisible(windowManager.SubWindow);
 			}
